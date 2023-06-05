@@ -5,13 +5,12 @@ import os.path
 
 def create_file():
     with open('num.txt', 'w+') as f:
-        while True:
-            for i in range(10):
-                f.write(f'{str(i)*randint(1,20)}')
-            f.write('TREASURE')
-            for i in range(9, -1, -1):
-                f.write(f'{str(i)*randint(1,20)}')
-            return
+        for i in range(10):
+            f.write(f'{str(i)*randint(1,20)}')
+        f.write('TREASURE')
+        for i in range(9, -1, -1):
+            f.write(f'{str(i)*randint(1,20)}')
+        return
 
 
 def check_range(n, offset):
@@ -29,7 +28,6 @@ def check_range(n, offset):
 
 def update_scoreboard(n, s):
     path = './scoreboard.txt'
-    # check_file = os.path.isfile(path)
     if os.path.isfile(path):
         with open('scoreboard.txt', 'r+') as f:
             score = json.load(f)
@@ -49,7 +47,6 @@ def update_scoreboard(n, s):
 
 
 def play():
-    # list_scoreboard
     name = input('Please enter your name: ')
     count = 0
     game_on = True
